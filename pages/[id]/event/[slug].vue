@@ -9,22 +9,24 @@ const { data } = await useFetch<EventApi>(
 
 <template>
     <section v-if="data" class="container mx-auto p-8">
+        <NuxtLink :to="`/${id}`" class="text-stone-600 hover:text-stone-900 font-bold text-lg">
+            <span class="text-2xl">&larr;</span> Back to all events
+        </NuxtLink>
+
         <EventDetail
+            class="mt-8"
             :url="`5da03c56503ca200015df6cb/event/${data.id}`"
             :title="data.title"
             :category="data.category"
             :start-date="
-                new Date(data.start).toLocaleDateString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                })
+                toValue(
+                    useLocaleDate(new Date(data.start), {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                    }),
+                )
             "
-            :end-date="
-                new Date(data.end).toLocaleDateString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                })
-            "
+            :end-date="toValue(useLocaleDate(new Date(data.end)))"
             :image="{
                 src: `https://www.eventim-light.com/de/api/image/${data.image.id}/shop_cover_v3/webp`,
                 alt: `${data.title} - ${data.venue.city}`,
