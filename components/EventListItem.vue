@@ -24,7 +24,7 @@ const props = defineProps<Props>();
             class="object-contain max-w-full w-full"
             :src="props.image.src"
             :alt="props.image.alt"
-        />
+        >
 
         <h2 class="bg-stone-50 p-4 border-t border-stone-200">
             <span class="text-xl font-bold">{{ props.title }}</span>
@@ -39,9 +39,14 @@ const props = defineProps<Props>();
             </p>
         </h2>
 
-        <p class="p-4 border-t border-stone-200">{{ props.venue }} - {{ props.city }}</p>
+        <p class="p-4 border-t border-stone-200">
+            {{ props.venue }} - {{ props.city }}
+        </p>
 
-        <NuxtLink :to="url" class="mt-auto">
+        <NuxtLink
+            :to="url"
+            class="mt-auto"
+        >
             <Button class="w-full">
                 <template v-if="isSoldout"> Sold Out </template>
                 <template v-else> Buy Tickets from {{ price }}{{ currency }}</template>

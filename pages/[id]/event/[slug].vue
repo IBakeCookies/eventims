@@ -8,8 +8,14 @@ const { data } = await useFetch<EventApi>(
 </script>
 
 <template>
-    <section v-if="data" class="container mx-auto p-8">
-        <NuxtLink :to="`/${id}`" class="text-stone-600 hover:text-stone-900 font-bold text-lg">
+    <section
+        v-if="data"
+        class="container mx-auto p-8"
+    >
+        <NuxtLink
+            :to="`/${id}`"
+            class="text-stone-600 hover:text-stone-900 font-bold text-lg"
+        >
             <span class="text-2xl">&larr;</span> Back to all events
         </NuxtLink>
 

@@ -25,7 +25,9 @@ const publishedEvents: ComputedRef<EventApi[]> = computed(() => {
 <template>
     <section class="container mx-auto p-8 bg-white">
         <template v-if="error">
-            <p class="text-lg">Something went wrong.</p>
+            <p class="text-lg">
+                Something went wrong.
+            </p>
         </template>
 
         <template v-else>
@@ -37,7 +39,10 @@ const publishedEvents: ComputedRef<EventApi[]> = computed(() => {
                 v-if="publishedEvents.length"
                 class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
-                <template v-for="event in publishedEvents" :key="event.id">
+                <template
+                    v-for="event in publishedEvents"
+                    :key="event.id"
+                >
                     <EventListItem
                         :url="`/${id}/event/${event.id}`"
                         :title="event.title"

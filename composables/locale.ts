@@ -7,7 +7,8 @@ export const useDefaultLocale = (fallback = 'de-DE') => {
         if (reqLocale) {
             locale.value = reqLocale;
         }
-    } else if (import.meta.client) {
+    }
+    else if (import.meta.client) {
         const navLang = navigator.language;
 
         if (navLang) {
